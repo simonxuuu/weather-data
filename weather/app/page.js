@@ -33,12 +33,7 @@ export default function Home() {
     setLongitude("-122.4194");
   }, []);
 
-  useEffect(() => {
-    if (latitude && longitude) {
-      getWeather();
-    }
-  }, [latitude, longitude]);
-
+ 
 
   return (
     <div className="weather">
@@ -48,6 +43,22 @@ export default function Home() {
       <h2>Apparent Temperature: {apparentTemp}</h2>
       <h2>Is Day: {isDay}</h2>
       <h2>Wind Speed: {windSpeed}</h2>
+      <label htmlFor="Longitude">Longitude:</label>
+      <input
+        type="text"
+        name="longitude"
+        value={longitude}
+        onChange={(e) => setLongitude(e.target.value)}
+      />
+      <label htmlFor="latitude">Latitude:</label>
+      <input
+        type="text"
+        name="latitude"
+        value={latitude}
+        onChange={(e) => setLatitude(e.target.value)}
+      />
+      <button onClick={getWeather}>Get Weather</button>
+      
     </div>
   );
 }
